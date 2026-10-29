@@ -5,7 +5,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/errutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/errutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/pagination"
 )
 

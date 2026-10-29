@@ -1,6 +1,6 @@
 # obsidian-golang-toolkit
 
-A collection of framework-agnostic utility packages for Go projects. No external dependencies beyond the standard library (except `gopkg.in/yaml.v3` for YAML config loading).
+A collection of framework-agnostic utility packages for Go APIs. No external dependencies beyond the standard library (except `gopkg.in/yaml.v3` for YAML config loading).
 
 **Requires Go 1.22+**
 
@@ -13,61 +13,49 @@ go get github.com/rafabcanedo/obsidian-golang-toolkit
 Import only the packages you need:
 
 ```go
-import "github.com/rafabcanedo/obsidian-golang-toolkit/strutil"
+import "github.com/rafabcanedo/obsidian-golang-toolkit/api/auth"
+import "github.com/rafabcanedo/obsidian-golang-toolkit/util/strutil"
 import "github.com/rafabcanedo/obsidian-golang-toolkit/validator"
 ```
 
+See [`examples/`](./examples) for runnable usage examples.
+
 ## Packages
 
-### Config & Environment
+### `api/` — HTTP & API
 
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `config` | Load configuration from files | `LoadEnv`, `LoadJSON`, `LoadYAML` |
-| `env` | Read environment variables with defaults | `GetString` |
+| Package | Description |
+|---------|-------------|
+| `api/auth` | JWT generation, parsing, and middleware |
+| `api/binding` | Decode JSON body and query params into structs |
+| `api/httpclient` | HTTP client with timeout, headers, and retry |
+| `api/middleware` | Logger, Recovery, RequestID, CORS |
+| `api/ratelimit` | Token bucket rate limiter with middleware |
+| `api/respond` | Standardized JSON response envelope |
 
-### HTTP
+### `util/` — Generic Utilities
 
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `httputil` | HTTP response helpers | `WriteJSON`, `WriteError`, `WriteNoContent` |
-| `middleware` | HTTP middleware | `Logger`, `Recovery`, `RequestID`, `GetRequestID`, `CORS` |
-| `health` | Health check handler | `New`, `AddCheck`, `Handler` |
-| `pagination` | Pagination params and metadata | `New`, `Params.Offset`, `Params.NewMeta` |
+| Package | Description |
+|---------|-------------|
+| `util/contextutil` | Type-safe context value helpers |
+| `util/errutil` | Typed HTTP errors (`NotFound`, `BadRequest`, `Unauthorized`) |
+| `util/httputil` | Low-level JSON response helpers |
+| `util/logutil` | Structured logger via `slog` |
+| `util/maputil` | Generic map operations (`Keys`, `Values`, `Merge`, `Filter`) |
+| `util/randutil` | Random string, int, and UUID v4 |
+| `util/sliceutil` | Generic slice operations (`Contains`, `Filter`, `Map`, `Unique`, `Chunk`) |
+| `util/strutil` | String utilities (`IsEmpty`, `Capitalize`, `Truncate`, `CamelToSnake`, `Slugify`) |
 
-### Errors & Validation
+### Root
 
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `errutil` | Typed HTTP errors | `NotFound`, `BadRequest`, `Unauthorized` |
-| `validator` | Fluent input validation | `New`, `Required`, `MinLen`, `MaxLen`, `Email`, `Validate` |
-
-### Data Structures
-
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `sliceutil` | Slice utilities with generics | `Contains`, `Filter`, `Map`, `Unique`, `Chunk` |
-| `maputil` | Map utilities with generics | `Keys`, `Values`, `Merge`, `Filter` |
-
-### Strings & Random
-
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `strutil` | String manipulation | `IsEmpty`, `Capitalize`, `Truncate`, `CamelToSnake`, `Slugify` |
-| `randutil` | Random value generation | `String`, `Int`, `UUID` |
-
-### Context & Logging
-
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `contextutil` | Type-safe context values | `WithValue`, `Value[T]` |
-| `logutil` | Structured logger via `slog` | `NewLogger` |
-
-### Testing
-
-| Package | Description | Functions |
-|---------|-------------|-----------|
-| `testutil` | Test assertion helpers | `Equal[T]` |
+| Package | Description |
+|---------|-------------|
+| `config` | Load configuration from `.env`, JSON, and YAML files |
+| `env` | Read environment variables with defaults |
+| `health` | Health check HTTP handler with named checks |
+| `pagination` | Page params, offset calculation, and metadata |
+| `testutil` | Test assertion helpers (`Equal`, `NoError`, `Error`, `EqualError`) |
+| `validator` | Fluent input validation (`Required`, `MinLen`, `MaxLen`, `Email`) |
 
 ---
 
@@ -75,21 +63,26 @@ import "github.com/rafabcanedo/obsidian-golang-toolkit/validator"
 
 ### Done
 
+- [x] `api/auth` — JWT generation, parsing, and middleware
+- [x] `api/binding` — JSON body and query param binding
+- [x] `api/httpclient` — HTTP client with options
+- [x] `api/middleware` — logger, recovery, request ID, CORS
+- [x] `api/ratelimit` — token bucket rate limiter
+- [x] `api/respond` — standardized JSON response envelope
 - [x] `config` — load env, JSON, YAML files
 - [x] `env` — environment variable helpers
-- [x] `errutil` — typed HTTP errors
-- [x] `httputil` — JSON response helpers
-- [x] `middleware` — logger, recovery, request ID, CORS
 - [x] `health` — health check HTTP handler
 - [x] `pagination` — page params and metadata
-- [x] `sliceutil` — generic slice operations
-- [x] `maputil` — generic map operations
-- [x] `strutil` — string manipulation utilities
-- [x] `contextutil` — type-safe context values
-- [x] `logutil` — structured logger
-- [x] `validator` — fluent input validation
-- [x] `randutil` — random string, int, UUID v4
 - [x] `testutil` — test helpers
+- [x] `util/contextutil` — type-safe context values
+- [x] `util/errutil` — typed HTTP errors
+- [x] `util/httputil` — JSON response helpers
+- [x] `util/logutil` — structured logger
+- [x] `util/maputil` — generic map operations
+- [x] `util/randutil` — random string, int, UUID v4
+- [x] `util/sliceutil` — generic slice operations
+- [x] `util/strutil` — string manipulation utilities
+- [x] `validator` — fluent input validation
 
 ### Planned
 

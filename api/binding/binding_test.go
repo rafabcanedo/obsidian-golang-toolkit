@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/binding"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/api/binding"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

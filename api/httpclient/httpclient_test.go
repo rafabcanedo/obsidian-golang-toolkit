@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/httpclient"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/api/httpclient"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

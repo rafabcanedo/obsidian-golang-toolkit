@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/middleware"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/api/middleware"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

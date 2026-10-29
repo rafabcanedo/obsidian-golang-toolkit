@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/contextutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/contextutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

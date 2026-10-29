@@ -3,7 +3,7 @@ package sliceutil_test
 import (
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/sliceutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/sliceutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

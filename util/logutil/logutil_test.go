@@ -3,7 +3,7 @@ package logutil_test
 import (
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/logutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/logutil"
 )
 
 func TestNewLogger_production(t *testing.T) {

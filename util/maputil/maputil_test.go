@@ -3,8 +3,8 @@ package maputil_test
 import (
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/maputil"
-	"github.com/rafabcanedo/obsidian-golang-toolkit/sliceutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/maputil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/sliceutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

@@ -7,9 +7,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/errutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/api/respond"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/pagination"
-	"github.com/rafabcanedo/obsidian-golang-toolkit/respond"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/errutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

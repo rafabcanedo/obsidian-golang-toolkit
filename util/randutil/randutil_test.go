@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/randutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/randutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

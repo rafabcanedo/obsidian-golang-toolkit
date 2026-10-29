@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/ratelimit"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/api/ratelimit"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

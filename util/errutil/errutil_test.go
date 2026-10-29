@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/errutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/errutil"
 )
 
 func TestNotFound(t *testing.T) {

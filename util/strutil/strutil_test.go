@@ -3,7 +3,7 @@ package strutil_test
 import (
 	"testing"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/strutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/strutil"
 	"github.com/rafabcanedo/obsidian-golang-toolkit/testutil"
 )
 

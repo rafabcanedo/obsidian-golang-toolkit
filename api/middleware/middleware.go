@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/contextutil"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/util/contextutil"
 )
 
 type responseWriter struct {
