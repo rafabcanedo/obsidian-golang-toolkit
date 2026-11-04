@@ -6,13 +6,13 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/rafabcanedo/obsidian-golang-toolkit/api/auth"
+	"github.com/rafabcanedo/obsidian-golang-toolkit/api/jwtauth"
 )
 
 func main() {
 	secret := "my-secret-key"
 
-	token, err := auth.Generate(secret, auth.Claims{
+	token, err := jwtauth.Generate(secret, jwtauth.Claims{
 		Subject: "user-123",
 		Expiry:  time.Now().Add(24 * time.Hour),
 	})
@@ -21,14 +21,14 @@ func main() {
 	}
 	fmt.Println("token:", token)
 
-	claims, err := auth.Parse(secret, token)
+	claims, err := jwtauth.Parse(secret, token)
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("subject:", claims.Subject)
 
-	protected := auth.Middleware(secret)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		c, _ := auth.GetClaims(r)
+	protected := jwtauth.Middleware(secret)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		c, _ := jwtauth.GetClaims(r)
 		fmt.Fprintf(w, "hello, %s!", c.Subject)
 	}))
 
