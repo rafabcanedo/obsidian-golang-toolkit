@@ -42,9 +42,11 @@ See [`examples/`](./examples) for runnable usage examples.
 | `util/httputil` | Low-level JSON response helpers |
 | `util/logutil` | Structured logger via `slog` |
 | `util/maputil` | Generic map operations (`Keys`, `Values`, `Merge`, `Filter`) |
+| `util/ptr` | Generic pointer helpers (`ToPtr`, `FromPtr`, `FromPtrOr`) |
 | `util/randutil` | Random string, int, and UUID v4 |
 | `util/sliceutil` | Generic slice operations (`Contains`, `Filter`, `Map`, `Unique`, `Chunk`) |
 | `util/strutil` | String utilities (`IsEmpty`, `Capitalize`, `Truncate`, `CamelToSnake`, `Slugify`) |
+| `util/timeutil` | Date/time helpers (`BeginOf`, `EndOf`, `IsBetween`, `FormatDuration`) |
 
 ### Root
 
@@ -79,16 +81,16 @@ See [`examples/`](./examples) for runnable usage examples.
 - [x] `util/httputil` — JSON response helpers
 - [x] `util/logutil` — structured logger
 - [x] `util/maputil` — generic map operations
+- [x] `util/ptr` — generic pointer helpers
 - [x] `util/randutil` — random string, int, UUID v4
 - [x] `util/sliceutil` — generic slice operations
 - [x] `util/strutil` — string manipulation utilities
+- [x] `util/timeutil` — date/time helpers
 - [x] `validator` — fluent input validation
 
 ### Planned
 
 - [ ] `mathutil` — generic Min, Max, Clamp, Abs
-- [ ] `ptr` — generic pointer helpers (`ToPtr`, `FromPtr`)
-- [ ] `timeutil` — BeginOf, EndOf, IsBetween, format duration
 - [ ] `retry` — retry with exponential backoff
 - [ ] `circuitbreaker` — simple circuit breaker
 - [ ] `worker` — goroutine pool
