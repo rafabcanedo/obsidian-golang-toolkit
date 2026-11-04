@@ -13,7 +13,7 @@ go get github.com/rafabcanedo/obsidian-golang-toolkit
 Import only the packages you need:
 
 ```go
-import "github.com/rafabcanedo/obsidian-golang-toolkit/api/auth"
+import "github.com/rafabcanedo/obsidian-golang-toolkit/api/jwtauth"
 import "github.com/rafabcanedo/obsidian-golang-toolkit/util/strutil"
 import "github.com/rafabcanedo/obsidian-golang-toolkit/validator"
 ```
@@ -26,7 +26,7 @@ See [`examples/`](./examples) for runnable usage examples.
 
 | Package | Description |
 |---------|-------------|
-| `api/auth` | JWT generation, parsing, and middleware |
+| `api/jwtauth` | JWT generation, parsing, and middleware |
 | `api/binding` | Decode JSON body and query params into structs |
 | `api/httpclient` | HTTP client with timeout, headers, and retry |
 | `api/middleware` | Logger, Recovery, RequestID, CORS |
@@ -63,7 +63,7 @@ See [`examples/`](./examples) for runnable usage examples.
 
 ### Done
 
-- [x] `api/auth` — JWT generation, parsing, and middleware
+- [x] `api/jwtauth` — JWT generation, parsing, and middleware
 - [x] `api/binding` — JSON body and query param binding
 - [x] `api/httpclient` — HTTP client with options
 - [x] `api/middleware` — logger, recovery, request ID, CORS
