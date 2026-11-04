@@ -91,6 +91,66 @@ func TestMultipleErrors(t *testing.T) {
 	testutil.Equal(t, len(errs), 2)
 }
 
+func TestMin(t *testing.T) {
+	tests := []struct {
+		name  string
+		value float64
+		min   float64
+		want  bool
+	}{
+		{"below min", -1, 0, true},
+		{"at min", 0, 0, false},
+		{"above min", 1, 0, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			errs := validator.New().Min("field", tt.value, tt.min).Validate()
+			testutil.Equal(t, errs != nil, tt.want)
+		})
+	}
+}
+
+func TestMax(t *testing.T) {
+	tests := []struct {
+		name  string
+		value float64
+		max   float64
+		want  bool
+	}{
+		{"above max", 32, 31, true},
+		{"at max", 31, 31, false},
+		{"below max", 1, 31, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			errs := validator.New().Max("field", tt.value, tt.max).Validate()
+			testutil.Equal(t, errs != nil, tt.want)
+		})
+	}
+}
+
+func TestBetween(t *testing.T) {
+	tests := []struct {
+		name  string
+		value float64
+		min   float64
+		max   float64
+		want  bool
+	}{
+		{"below range", 0, 1, 31, true},
+		{"above range", 32, 1, 31, true},
+		{"at min", 1, 1, 31, false},
+		{"at max", 31, 1, 31, false},
+		{"in range", 15, 1, 31, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			errs := validator.New().Between("field", tt.value, tt.min, tt.max).Validate()
+			testutil.Equal(t, errs != nil, tt.want)
+		})
+	}
+}
+
 func TestNoErrors(t *testing.T) {
 	errs := validator.New().
 		Required("name", "John").

@@ -69,6 +69,36 @@ func (v *Validator) Email(field, value string) *Validator {
 	return v
 }
 
+func (v *Validator) Min(field string, value, min float64) *Validator {
+	if value < min {
+		v.errors = append(v.errors, ValidationError{
+			Field:   field,
+			Message: fmt.Sprintf("must be at least %g", min),
+		})
+	}
+	return v
+}
+
+func (v *Validator) Max(field string, value, max float64) *Validator {
+	if value > max {
+		v.errors = append(v.errors, ValidationError{
+			Field:   field,
+			Message: fmt.Sprintf("must be at most %g", max),
+		})
+	}
+	return v
+}
+
+func (v *Validator) Between(field string, value, min, max float64) *Validator {
+	if value < min || value > max {
+		v.errors = append(v.errors, ValidationError{
+			Field:   field,
+			Message: fmt.Sprintf("must be between %g and %g", min, max),
+		})
+	}
+	return v
+}
+
 func (v *Validator) Validate() Errors {
 	if len(v.errors) == 0 {
 		return nil
